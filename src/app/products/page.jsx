@@ -17,7 +17,6 @@ const ProductsPage = async ({ searchParams }) => {
     }
   };
   const productsData = await getProducts();
-  console.log(productsData);
 
   return (
     <main className="w-full">

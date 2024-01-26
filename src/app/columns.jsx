@@ -15,7 +15,6 @@ import { MoreVertical } from "lucide-react";
 
 const deleteUser = async (id) => {
   try {
-    console.log(id);
     const response = await axios.delete(`${baseUrl}users/delete/${id}`);
     console.log(response);
   } catch (error) {
