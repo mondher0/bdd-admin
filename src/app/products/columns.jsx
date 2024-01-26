@@ -9,7 +9,19 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { baseUrl } from "@/lib/utils";
+import axios from "axios";
 import { MoreVertical } from "lucide-react";
+
+const deleteProduct = async (id) => {
+  try {
+    console.log(id);
+    const response = await axios.delete(`${baseUrl}products/delete/${id}`);
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+};
 export const columns = [
   {
     id: "select",
@@ -93,7 +105,7 @@ export const columns = [
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const payment = row.original;
+      const product = row.original;
 
       return (
         <DropdownMenu>
@@ -105,14 +117,10 @@ export const columns = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Copy payment ID
+            <DropdownMenuItem onClick={() => deleteProduct(product.id)}>
+              Delete product
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

@@ -26,7 +26,7 @@ const SideBar = () => {
             </div>
           </li>
         </Link>
-        <Link href="/products" style={style}>
+        <Link href="/products?page=1" style={style}>
           <li>
             <div className="link dashboard">
               <Store />
