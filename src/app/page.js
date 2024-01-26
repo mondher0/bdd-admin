@@ -17,7 +17,7 @@ export default async function Home() {
   const users = await getUsers();
   return (
     <main className="w-full">
-      <h1>Users</h1>
+      <h1 className="font-bold">Users</h1>
       <DataTableDemo columns={columns} data={users} filterConstraint="email" />
     </main>
   );

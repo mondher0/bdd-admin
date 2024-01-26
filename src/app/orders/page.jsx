@@ -29,7 +29,7 @@ const OrdersPage = () => {
   ];
   return (
     <main className="w-full">
-      <h1>Orders</h1>
+      <h1 className="font-bold">Orders</h1>
       <DataTableDemo columns={columns} data={data} filterConstraint="name" />
     </main>
   );

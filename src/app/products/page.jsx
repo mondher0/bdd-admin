@@ -2,6 +2,7 @@ import { DataTableDemo } from "@/components/data-table";
 import React from "react";
 import { columns } from "./columns";
 import { baseUrl } from "@/lib/utils";
+import ProductsHeader from "@/components/ProductsHeader";
 
 const ProductsPage = async ({ searchParams }) => {
   const { page } = searchParams;
@@ -20,7 +21,7 @@ const ProductsPage = async ({ searchParams }) => {
 
   return (
     <main className="w-full">
-      <h1>Products</h1>
+      <ProductsHeader />
       <DataTableDemo
         columns={columns}
         data={productsData?.products}

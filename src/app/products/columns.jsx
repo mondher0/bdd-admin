@@ -116,6 +116,13 @@ export const columns = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuItem
+              onClick={() => {
+                window.location.href = `/products/edit-product/${product.id}`;
+              }}
+            >
+              Edit product
+            </DropdownMenuItem>
             <DropdownMenuItem onClick={() => deleteProduct(product.id)}>
               Delete product
             </DropdownMenuItem>

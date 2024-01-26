@@ -1,0 +1,226 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px; 
+  }
+  .container .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container .form form .input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    gap: 10px;
+  }
+  .pop .input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+  }
+  .container .form form .input label,
+  label {
+    color: #7c7c7c;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .container .form form .input input,
+  .container .form form .input textarea,
+  .pop .input input,
+  .pop .input textarea
+   {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    padding: 8px 8px 8px 15px;
+  }
+  .container .form form .media,
+  .container .form form .consulter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .container .form form .media img,
+  .container .form form .consulter img {
+    width: 50px;
+    margin: 0;
+  }
+  .container .form form .media .image,
+  .container .form form .consulter .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    width: 20%;
+    margin: 20px;
+    height: 200px;
+    position: relative;
+  }
+  .container .form form .media .image p,
+  .container .form form .consulter .image p {
+    color: #7c7c7c;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+  .container .form form .media .image input,
+  .container .form form .consulter .image input {
+    opacity: 0;
+    margin-left: 200px;
+    position: absolute;
+    top: 40px;
+  }
+  .container .form form .prix {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+  }
+  .container .form form .prix .price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 500px;
+  }
+  .container .form .valeurs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .container .form .valeur {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    gap: 10px;
+  }
+  .container .form .valeur input {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    padding: 8px 8px 8px 15px;
+    width: 100%;
+  }
+  .add-value {
+    background-color: #3b5f90;
+    color: white;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    width: 150px;
+    font-size: 12px;
+  }
+  .container .form .valeurs .added {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    color: #232d42;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    width: 80%;
+  }
+  .container .form .valeurs .added .added-value,
+  .container .form .valeurs .added .added-quantite {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    padding: 8px 8px 8px 15px;
+    width: 100%;
+    background-color: #f5f5f5;
+  }
+  .container .form .valeurs .added .saved-value {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 8px;
+    text-align: center;
+  }
+  .submit {
+    margin-top: 70px;
+  }
+  @media screen and (max-width: 1800px) {
+    .container .form form .media .image,
+    .container .form form .consulter .image {
+      height: 150px;
+    }
+    .container .form form .prix .price {
+      width: 300px;
+    }
+  }
+  @media screen and (min-width: 1800px) {
+    .container .form form .media .image input,
+    .container .form form .consulter .image input {
+      top: 60px;
+    }
+  }
+  .cat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    gap: 10px;
+  }
+  .sub {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    padding: 23px 8px 8px 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 200px;
+    overflow-y: auto;
+  }
+  .sub .child-sub {
+    position: absolute;
+    top: 122%;
+    background-color: white;
+    width: 50%;
+    border: 1px solid #ddd;
+  
+    left: 18%;
+    border-radius: 12px;
+  }
+  .sub div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+  }
+  
