@@ -53,7 +53,7 @@ export function DataTableDemo({ columns, data, filterConstraint }) {
   });
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-10">
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter products..."
