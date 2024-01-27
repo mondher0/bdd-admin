@@ -16,6 +16,34 @@ const initialState = {
   error: false,
 };
 
+// add product
+export const addProduct = createAsyncThunk(
+  "product/add",
+  async (product, { rejectWithValue }) => {
+    console.log(product);
+    const { name, price, description, image, rating, stock, brand, category } =
+      product;
+    const data = {
+      name: name,
+      price: price,
+      description: description,
+      image: image,
+      rating: rating,
+      stock: stock,
+      brand: brand,
+      category: category,
+    };
+    try {
+      const response = await axios.post(`${baseUrl}products/add`, data);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error.response.data.detail);
+    }
+  },
+);
+
 // update product
 export const updateProduct = createAsyncThunk(
   "product/update",
@@ -88,6 +116,19 @@ const productsSlice = createSlice({
       state.error = "Something went wrong";
     });
     builder.addCase(updateProduct.pending, (state, action) => {
+      console.log(action);
+      state.loading = true;
+    });
+    builder.addCase(addProduct.fulfilled, (state, action) => {
+      console.log(action);
+      state.loading = false;
+    });
+    builder.addCase(addProduct.rejected, (state, action) => {
+      console.log(action);
+      state.loading = false;
+      state.error = "Something went wrong";
+    });
+    builder.addCase(addProduct.pending, (state, action) => {
       console.log(action);
       state.loading = true;
     });

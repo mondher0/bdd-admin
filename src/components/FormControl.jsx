@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import "../css/products.css";
 import { useDispatch } from "react-redux";
 import { editProduct } from "@/store/features/products/products-slice";
