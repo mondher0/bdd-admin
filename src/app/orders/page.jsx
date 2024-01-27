@@ -1,36 +1,29 @@
 import { DataTableDemo } from "@/components/data-table";
-import React from "react";
 import { columns } from "./columns";
+import { baseUrl } from "@/lib/utils";
 
-const OrdersPage = () => {
-  const data = [
-    {
-      id: 5,
-      name: "product name 4",
-      description: "product description",
-      price: 0,
-      image: "product image",
-      rating: 0,
-      stock: 0,
-      brand: "product brand",
-      category: "product category",
-    },
-    {
-      id: 6,
-      name: "product name 5",
-      description: "product description",
-      price: 0,
-      image: "product image",
-      rating: 0,
-      stock: 0,
-      brand: "product brand",
-      category: "product category",
-    },
-  ];
+const OrdersPage = async () => {
+  const getOrders = async () => {
+    try {
+      const response = await fetch(`${baseUrl}orders`, {
+        cache: "no-cache",
+      });
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+  const orders = await getOrders();
+  console.log(orders);
   return (
     <main className="w-full">
       <h1 className="font-bold">Orders</h1>
-      <DataTableDemo columns={columns} data={data} filterConstraint="name" />
+      <DataTableDemo
+        columns={columns}
+        data={orders?.orders}
+        filterConstraint="userName"
+      />
     </main>
   );
 };

@@ -17,6 +17,7 @@ const deleteProduct = async (id) => {
   try {
     const response = await axios.delete(`${baseUrl}products/delete/${id}`);
     console.log(response);
+    window.location.reload();
   } catch (error) {
     console.error(error);
   }

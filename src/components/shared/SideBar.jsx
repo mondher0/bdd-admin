@@ -1,5 +1,4 @@
 import {
-  LogOut,
   MessageCircleWarning,
   ShoppingCart,
   Store,
@@ -50,12 +49,6 @@ const SideBar = () => {
             </div>
           </li>
         </Link>
-        <li>
-          <div className="link logout hover text-white">
-            <LogOut />
-            <p>Logout</p>
-          </div>
-        </li>
       </ul>
     </aside>
   );

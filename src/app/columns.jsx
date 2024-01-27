@@ -17,6 +17,7 @@ const deleteUser = async (id) => {
   try {
     const response = await axios.delete(`${baseUrl}users/delete/${id}`);
     console.log(response);
+    window.location.reload();
   } catch (error) {
     console.error(error);
   }

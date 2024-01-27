@@ -25,17 +25,18 @@ export const addProduct = createAsyncThunk(
       product;
     const data = {
       name: name,
-      price: price,
+      price: parseInt(price),
       description: description,
       image: image,
-      rating: rating,
-      stock: stock,
+      rating: 5,
+      stock: parseInt(stock),
       brand: brand,
       category: category,
     };
     try {
       const response = await axios.post(`${baseUrl}products/add`, data);
       console.log(response.data);
+      window.location.href = "/products";
       return response.data;
     } catch (error) {
       console.log(error);
@@ -62,11 +63,11 @@ export const updateProduct = createAsyncThunk(
     } = product;
     const data = {
       name: name,
-      price: price,
+      price: parseInt(price),
       description: description,
       image: image,
-      rating: rating,
-      stock: stock,
+      rating: 4,
+      stock: parseInt(stock),
       brand: brand,
       category: category,
     };

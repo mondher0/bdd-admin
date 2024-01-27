@@ -8,7 +8,7 @@ const ProductsPage = async ({ searchParams }) => {
   const { page } = searchParams;
   const getProducts = async () => {
     try {
-      const response = await fetch(`${baseUrl}products?limit=3&page=${page}`, {
+      const response = await fetch(`${baseUrl}products?limit=200&page=0`, {
         cache: "no-cache",
       });
       const data = await response.json();

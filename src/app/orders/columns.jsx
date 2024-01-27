@@ -39,46 +39,24 @@ export const columns = [
     cell: ({ row }) => <div className="capitalize">{row.getValue("id")}</div>,
   },
   {
-    accessorKey: "name",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-          {/* <CaretSortIcon className="ml-2 h-4 w-4" /> */}
-        </Button>
-      );
-    },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("name")}</div>,
-  },
-  {
-    accessorKey: "stock",
-    header: "Stock",
+    accessorKey: "userEmail",
+    header: "User Email",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("stock")}</div>
+      <div className="capitalize">{row.getValue("userEmail")}</div>
     ),
   },
   {
-    accessorKey: "brand",
-    header: "Brand",
+    accessorKey: "userName",
+    header: "User Name",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("brand")}</div>
+      <div className="capitalize">{row.getValue("userName")}</div>
     ),
   },
   {
-    accessorKey: "category",
-    header: "Category",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("category")}</div>
-    ),
-  },
-  {
-    accessorKey: "price",
-    header: () => <div className="text-right">Price</div>,
+    accessorKey: "totalPrice",
+    header: () => <div className="text-right">Total Price</div>,
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("price"));
+      const amount = parseFloat(row.getValue("totalPrice"));
 
       // Format the amount as a dollar amount
       const formatted = new Intl.NumberFormat("en-US", {
@@ -93,7 +71,7 @@ export const columns = [
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const payment = row.original;
+      const order = row.original;
 
       return (
         <DropdownMenu>
@@ -106,13 +84,12 @@ export const columns = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => {
+                window.location.href = `/orders/${order.id}`;
+              }}
             >
-              Copy payment ID
+              Order Details
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

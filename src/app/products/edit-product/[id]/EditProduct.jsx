@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const EditProduct = ({ product }) => {
   const {
+    id,
     name,
     price,
     description,
@@ -43,6 +44,7 @@ const EditProduct = ({ product }) => {
                   stock,
                   brand,
                   category,
+                  id,
                 }),
               );
             }}
@@ -83,16 +85,19 @@ const EditProduct = ({ product }) => {
               value={category}
             />
             <div className="input nom">
-              <label htmlFor="img">Image</label>
-              <div className="rounded-[12px] border border-gray-300 outline-none  pl-4">
-                <input
-                  className="opacity-0"
-                  type="file"
-                  id="img"
-                  name="nom"
-                  placeholder="price"
-                />
-              </div>
+              <label htmlFor="img">Image link</label>
+              <input
+                type="text"
+                id="img"
+                name="nom"
+                placeholder="price"
+                value={image}
+                onChange={(e) => {
+                  dispatch(
+                    editProduct({ name: "image", value: e.target.value }),
+                  );
+                }}
+              />
             </div>
             <div className="input livraison">
               <label htmlFor="livraison">Description</label>

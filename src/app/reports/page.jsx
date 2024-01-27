@@ -1,36 +1,32 @@
 import { DataTableDemo } from "@/components/data-table";
 import React from "react";
 import { columns } from "./columns";
+import { baseUrl } from "@/lib/utils";
 
-const ReportsPage = () => {
-  const data = [
-    {
-      id: 5,
-      name: "product name 4",
-      description: "product description",
-      price: 0,
-      image: "product image",
-      rating: 0,
-      stock: 0,
-      brand: "product brand",
-      category: "product category",
-    },
-    {
-      id: 6,
-      name: "product name 5",
-      description: "product description",
-      price: 0,
-      image: "product image",
-      rating: 0,
-      stock: 0,
-      brand: "product brand",
-      category: "product category",
-    },
-  ];
+const ReportsPage = async () => {
+  // get reports
+  const getReports = async () => {
+    try {
+      const response = await fetch(`${baseUrl}reports`, {
+        cache: "no-cache",
+      });
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
+  const reports = await getReports();
+  console.log(reports);
   return (
     <main className="w-full">
       <h1 className="font-bold">Reports</h1>
-      <DataTableDemo columns={columns} data={data} filterConstraint="name" />
+      <DataTableDemo
+        columns={columns}
+        data={reports.reports}
+        filterConstraint="name"
+      />
     </main>
   );
 };

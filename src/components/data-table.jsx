@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/table";
 
 export function DataTableDemo({ columns, data, filterConstraint }) {
+  console.log(data);
 
   const [sorting, setSorting] = React.useState();
   const [columnFilters, setColumnFilters] = React.useState();
@@ -56,7 +57,7 @@ export function DataTableDemo({ columns, data, filterConstraint }) {
     <div className="w-full mt-10">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter products..."
+          placeholder={filterConstraint}
           value={table.getColumn(filterConstraint)?.getFilterValue() ?? ""}
           onChange={(event) =>
             table
